@@ -112,6 +112,11 @@ void GameServer::handle_client(sf::TcpSocket* client)
                 // Actually, there is no need to print the message if the message is not a string
                 std::string message(payload);
                 std::cout << "Received message: " << message << std::endl;
+
+                std::string response = "Server received: " + message + "\n";
+
+                client->send(response.c_str(), response.size());
+
                 broadcast_message(message, client);
             }
         }

@@ -120,10 +120,6 @@ void GameServer::handle_client(sf::TcpSocket* client)
                 std::string message(payload);
                 std::cout << "Received message: " << message << std::endl;
 
-                //std::string response = "Server received: " + message + "\n"; // Used for Multiplayer Pong
-
-                //client->send(response.c_str(), response.size()); // Used for Multiplayer Pong
-
                 broadcast_message(message, client);
             }
         }
